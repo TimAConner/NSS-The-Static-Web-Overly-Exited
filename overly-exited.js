@@ -6,7 +6,11 @@ function addExcitement (theWordArray) {
     for(var i = 0; i < sentence.length; i++){
         document.getElementById("output").innerHTML+= "<p>";
         for(var x = 0; x <= i; x++){
-        document.getElementById("output").innerHTML += sentence[x] + " ";
+            if((x+1) % 3 === 0){
+                document.getElementById("output").innerHTML += sentence[x] + "!".repeat(Math.round(x/3)) + " ";
+            } else {
+            document.getElementById("output").innerHTML += sentence[x] + " ";
+            }
         }
         document.getElementById("output").innerHTML+= "</p>";
     }
