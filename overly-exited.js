@@ -4,15 +4,17 @@ var sentence = ["The", "walrus", "danced", "through", "the", "trees", "in", "the
 // The addExcitement function should accept the array as the sole argument
 function addExcitement (theWordArray) {
     for(var i = 0; i < theWordArray.length; i++){
-        document.getElementById("output").innerHTML+= "<p>";
+        let paragraphDOM = document.createElement("p");
         for(var x = 0; x <= i; x++){
             if((x+1) % 3 === 0){
-                document.getElementById("output").innerHTML += theWordArray[x] + "!".repeat(Math.round(x/3)) + " ";
+                let textNode = document.createTextNode(`${theWordArray[x]}${"!".repeat(Math.round(x/3))} `);
+                paragraphDOM.appendChild(textNode);
             } else {
-            document.getElementById("output").innerHTML += theWordArray[x] + " ";
+                let textNode = document.createTextNode(`${theWordArray[x]} `);
+                paragraphDOM.appendChild(textNode);
             }
         }
-        document.getElementById("output").innerHTML+= "</p>";
+        document.getElementById("output").appendChild(paragraphDOM);
     }
 }
 
